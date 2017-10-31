@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">狗狗自動餵食管理</string>
+    <string name="name">名字:</string>
+    <string name="null_name">NULL_name</string>
+    <string name="time">時間:</string>
+    <string name="null_time">NULL_time</string>
+</resources>

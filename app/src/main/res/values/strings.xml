@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">My Application1</string>
+    <string name="name">名字:</string>
+    <string name="null_name">NULL_name</string>
+    <string name="time">時間:</string>
+    <string name="null_time">NULL_time</string>
+</resources>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AutoFeed</string>
+    <string name="name">Name:</string>
+    <string name="null_name">NULL_name</string>
+    <string name="null_time">NULL_time</string>
+    <string name="time">Time:</string>
+</resources>
