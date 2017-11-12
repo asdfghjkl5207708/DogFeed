@@ -4,13 +4,15 @@ package com.example.myapplication1;
 public class Data {
     private String name;
     private String time;
+    private String place;
     private String nameHolder, timeHolder;
 
     public Data(){}
 
-    public Data(String name, String time){
+    public Data(String name, String time, String place){
         this.name = name;
         this.time = time;
+        this.place = place;
     }
 
     public void setName(String name){
@@ -19,31 +21,10 @@ public class Data {
     public void setTime(String time){
         this.time = time;
     }
+    public void setPlace(String place){ this.place = place; }
 
     public String getName(){return name;}
     public String getTime(){return time;}
+    public String getPlace(){return place;}
 
 }
-
-/*Firebase.setAndroidContext(this);
-        Firebase myFirebaseRef = new Firebase(url);
-        myFirebaseRef.addValueEventListener(new com.firebase.client.ValueEventListener() {
-@Override
-public void onDataChange(com.firebase.client.DataSnapshot snapshot) {
-        for (com.firebase.client.DataSnapshot dataSnapshot : snapshot.getChildren()){
-        Data data = dataSnapshot.getValue(Data.class);
-        dogName = data.getName();
-        dogTime = data.getTime();
-        Log.d("InLook", " name = "+ dogName + ", time = " + dogTime);
-
-
-
-
-        }
-        }//onDataChange end;
-
-@Override
-public void onCancelled(FirebaseError firebaseError) {
-
-        }
-        });//addValueEventListener end;*/

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.myapplication1.Login">
+
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/mEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="145dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+        <EditText
+            android:id="@+id/editText6"
+            android:layout_width="332dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/member_email"
+            android:inputType="textEmailAddress"
+            android:singleLine="true" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:id="@+id/mPSW"
+        android:layout_below="@+id/mEmail"
+        android:layout_alignStart="@+id/mEmail">
+
+        <EditText
+            android:id="@+id/editText5"
+            android:layout_width="332dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/member_password"
+            android:inputType="textPassword" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/bt_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mPSW"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="19dp"
+        android:onClick="login"
+        android:text="@string/member_login" />
+
+    <Button
+        android:id="@+id/bt_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/mPSW"
+        android:layout_alignTop="@+id/bt_login"
+        android:layout_marginEnd="11dp"
+        android:onClick="Register_bt_onclick"
+        android:text="@string/member_register" />
+
+    <TextView
+        android:id="@+id/tv_Login_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="67dp"
+        android:text="@string/member_login_title"
+        android:textColor="@android:color/black"
+        android:textSize="36sp" />
+
+</RelativeLayout>

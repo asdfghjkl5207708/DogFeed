@@ -1,6 +1,8 @@
 package com.example.myapplication1;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -24,11 +26,15 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        /*if (login != true) {
+            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+            startActivity(intent);
+        } //跳到登入畫面*/
 /*------------------------------------------列表清單-----------------------------------------------*/
         //name列表
         ListView list = (ListView) findViewById(R.id.date_listview);
-        final ArrayAdapter<String> adapter =
-                new ArrayAdapter<String>(this,
+        final ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                         android.R.layout.simple_list_item_1,
                         android.R.id.text1);
         list.setAdapter(adapter);
@@ -38,33 +44,32 @@ public class MainActivity extends AppCompatActivity {
         String url = "https://nhucsie-60df0.firebaseio.com/contacts";
 
 /*------------------------------------------取得資料 : name-----------------------------------------------*/
-        new Firebase(url).addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                adapter.add(
-                        (String) dataSnapshot.child("date").getValue());
-            }
 
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-                adapter.remove(
-                        (String) dataSnapshot.child("date").getValue());
-            }
+            new Firebase(url).addChildEventListener(new ChildEventListener() {
+                @Override
+                public void onChildAdded(DataSnapshot dataSnapshot, String s) {
+                    adapter.add(
+                            (String) dataSnapshot.child("date").getValue());
+                }
 
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-            }
+                @Override
+                public void onChildRemoved(DataSnapshot dataSnapshot) {
+                    adapter.remove(
+                            (String) dataSnapshot.child("date").getValue());
+                }
 
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+                @Override
+                public void onChildChanged(DataSnapshot dataSnapshot, String s) {
+                  }
 
-            }
+                @Override
+                public void onChildMoved(DataSnapshot dataSnapshot, String s) {
+                  }
 
-            @Override
-            public void onCancelled(FirebaseError firebaseError) {
-
-            }
-        }); //end
+                @Override
+                public void onCancelled(FirebaseError firebaseError) {
+                }
+            }); //end
 
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

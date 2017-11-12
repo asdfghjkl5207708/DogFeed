@@ -35,16 +35,17 @@ public class ResultActivity extends AppCompatActivity {
         Intent intent = getIntent();
         String user_Click_Result = intent.getStringExtra("USER_CLICK_EXTRA");
         String url = "https://nhucsie-60df0.firebaseio.com/"+ user_Click_Result;
-        Toast.makeText(this, url, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, url, Toast.LENGTH_SHORT).show();
 
         TextView title= (TextView)findViewById(R.id.title);
-        title.setText("日期:"+user_Click_Result);
+        title.setText(""+user_Click_Result);
 
         Firebase.setAndroidContext(this);
         Firebase myFirebaseRef = new Firebase(url);
         myFirebaseRef.addListenerForSingleValueEvent(new com.firebase.client.ValueEventListener() {
             TextView tv_name = (TextView)findViewById(R.id.tv_name);
             TextView tv_time = (TextView)findViewById(R.id.tv_time);
+            TextView tv_place = (TextView)findViewById(R.id.tv_place);
             @Override
             public void onDataChange(com.firebase.client.DataSnapshot snapshot) {
                 for (com.firebase.client.DataSnapshot dataSnapshot : snapshot.getChildren()){
@@ -54,6 +55,8 @@ public class ResultActivity extends AppCompatActivity {
                         tv_name.setText("" + data.getName());
                     if (data.getTime() != null)
                         tv_time.setText("" + data.getTime());
+                    if (data.getPlace() != null)
+                        tv_place.setText("" + data.getPlace());
 
                 }
             }
